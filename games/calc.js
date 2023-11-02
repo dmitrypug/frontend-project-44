@@ -8,6 +8,24 @@ const getRandomSymbol = () => {
   return symbols[rand];
 };
 
+const calc = (num1, symbol, num2) => {
+  let result;
+  switch (symbol) {
+    case '+':
+      result = num1 + num2;
+      break;
+    case '-':
+      result = num1 - num2;
+      break;
+    case '*':
+      result = num1 * num2;
+      break;
+    default:
+      break;
+  }
+  return result;
+};
+
 const calcTheGame = () => {
   const name = welcome();
   console.log('What is the result of the expression?');
@@ -18,19 +36,7 @@ const calcTheGame = () => {
     const quest = `${num1} ${sym} ${num2}`;
     askQuestion(quest);
     const answer = giveAnswer();
-    let correctAnswer;
-    switch (sym) {
-      case '+':
-        correctAnswer = num1 + num2;
-        break;
-      case '-':
-        correctAnswer = num1 - num2;
-        break;
-      case '*':
-        correctAnswer = num1 * num2;
-        break;
-    }
-    correctAnswer = String(correctAnswer);
+    const correctAnswer = String(calc(num1, sym, num2));
     compareAnswer(answer, correctAnswer, name);
     if (answer !== correctAnswer) {
       return;

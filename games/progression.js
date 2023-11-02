@@ -2,6 +2,10 @@ import {
   getRandomNumber, welcome, askQuestion, giveAnswer, compareAnswer, congratulations,
 } from '../src/index.js';
 
+const getProgression = () => {
+  
+}
+
 const progressionTheGame = () => {
   const name = welcome();
   console.log('What number is missing in the progression?');
