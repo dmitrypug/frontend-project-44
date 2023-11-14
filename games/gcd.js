@@ -1,5 +1,6 @@
+import getRandomInRange from '../src/utils.js';
 import {
-  getRandomNumber, welcome, askQuestion, giveAnswer, compareAnswer, congratulations,
+  welcome, askQuestion, giveAnswer, compareAnswer, congratulations,
 } from '../src/index.js';
 
 const gcd = (num1, num2) => {
@@ -19,8 +20,8 @@ const gcdTheGame = () => {
   const name = welcome();
   console.log('Find the greatest common divisor of given numbers.');
   for (let i = 1; i <= 3; i += 1) {
-    const num1 = getRandomNumber();
-    const num2 = getRandomNumber();
+    const num1 = getRandomInRange();
+    const num2 = getRandomInRange();
     const quest = `${num1} ${num2}`;
     askQuestion(quest);
     const answer = giveAnswer();

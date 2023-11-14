@@ -1,12 +1,13 @@
+import getRandomInRange from '../src/utils.js';
 import {
-  getRandomNumber, welcome, askQuestion, giveAnswer, compareAnswer, congratulations,
+  welcome, askQuestion, giveAnswer, compareAnswer, congratulations,
 } from '../src/index.js';
 
 const evenTheGame = () => {
   const name = welcome();
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   for (let i = 1; i <= 3; i += 1) {
-    const num = getRandomNumber();
+    const num = getRandomInRange();
     askQuestion(num);
     const answer = giveAnswer();
     const correctAnswer = (num % 2 === 0) ? 'yes' : 'no';

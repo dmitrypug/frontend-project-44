@@ -1,5 +1,6 @@
+import getRandomInRange from '../src/utils.js';
 import {
-  getRandomNumber, welcome, askQuestion, giveAnswer, compareAnswer, congratulations,
+  welcome, askQuestion, giveAnswer, compareAnswer, congratulations,
 } from '../src/index.js';
 
 const getRandomSymbol = () => {
@@ -30,8 +31,8 @@ const calcTheGame = () => {
   const name = welcome();
   console.log('What is the result of the expression?');
   for (let i = 1; i <= 3; i += 1) {
-    const num1 = getRandomNumber();
-    const num2 = getRandomNumber();
+    const num1 = getRandomInRange();
+    const num2 = getRandomInRange();
     const sym = getRandomSymbol();
     const quest = `${num1} ${sym} ${num2}`;
     askQuestion(quest);
