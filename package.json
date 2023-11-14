@@ -10,11 +10,7 @@
     "brain-progression": "bin/brain-progression.js",
     "brain-prime": "bin/brain-prime.js"
   },
-  "description": "[![Actions Status](https://github.com/dmitrypug/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/dmitrypug/frontend-project-44/actions)",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "The Brain Games project",
   "author": "",
   "license": "ISC",
   "dependencies": {
