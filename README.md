@@ -2,10 +2,15 @@
 [![Actions Status](https://github.com/dmitrypug/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/dmitrypug/frontend-project-44/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b799fa31e46cb5b7740f/maintainability)](https://codeclimate.com/github/dmitrypug/frontend-project-44/maintainability)
 
-### Описание
-«Игры разума» — набор из пяти консольных игр, построенных по принципу популярных мобильных приложений для прокачки мозга. Каждая игра задает вопросы, на которые нужно дать правильные ответы. После трех правильных ответов считается, что игра пройдена. Неправильные ответы завершают игру и предлагают пройти ее заново.
+### Description
+"Brain Games" is a set of five console games built on the principle of popular mobile applications for brain pumping. Each game asks questions that need to be answered correctly. After three correct answers, it is considered that the game is over. Incorrect answers end the game and offer to go through it again.
 
-### Установка
+### Cloning a repository
+```
+git clone https://github.com/dmitrypug/frontend-project-44.git
+```
+
+### Installation
 ```
 npm i
 ```
@@ -13,36 +18,36 @@ npm i
 npm link
 ```
 
-### Игра: "Проверка на чётность"
-Определение четного числа. Запуск и пример игры:
+### Game: "Even parity"
+Definition of an even number. Launch and example of the game:
 ```
 brain-even
 ```
 [![asciicast](https://asciinema.org/a/V4ZBirc2m2fJzVcFokIQvOX8U.svg)](https://asciinema.org/a/V4ZBirc2m2fJzVcFokIQvOX8U)
 
-### Игра: "Калькулятор"
-Калькулятор. Арифметические выражения, которые необходимо вычислить. Запуск и пример игры:
+### Game: "Calculator"
+Calculator. Arithmetic expressions that need to be calculated. Launch and example of the game:
 ```
 brain-calc
 ```
 [![asciicast](https://asciinema.org/a/yDpwzz9dPyDC8PI7S9QHW7LEw.svg)](https://asciinema.org/a/yDpwzz9dPyDC8PI7S9QHW7LEw)
 
-### Игра: "НОД"
-Определение наибольшего общего делителя. Запуск и пример игры:
+### Game: "GCD"
+Definition of the greatest common divisor. Launch and example of the game:
 ```
 brain-gcd
 ```
 [![asciicast](https://asciinema.org/a/q7ppheJVuiraDjwJGXqPukd5R.svg)](https://asciinema.org/a/q7ppheJVuiraDjwJGXqPukd5R)
 
-### Игра: "Арифметическая прогрессия"
-Прогрессия. Поиск пропущенных чисел в последовательности чисел. Запуск и пример игры:
+### Game: "Arithmetic progression"
+Progression. Search for missing numbers in a sequence of numbers. Launch and example of the game:
 ```
 brain-progression
 ```
 [![asciicast](https://asciinema.org/a/etMAmuE6PRyFKezPwKNz5O7ZV.svg)](https://asciinema.org/a/etMAmuE6PRyFKezPwKNz5O7ZV)
 
-### Игра: "Простое ли число?"
-Определение простого числа. Запуск и пример игры:
+### Game: "Is a prime number?"
+Definition of a prime number. Launch and example of the game:
 ```
 brain-prime
 ```
