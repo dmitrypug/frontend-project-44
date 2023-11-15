@@ -1,35 +1,29 @@
+import runEngine from '../src/index.js';
 import getRandomInRange from '../src/utils.js';
-import {
-  welcome, askQuestion, giveAnswer, compareAnswer, congratulations,
-} from '../src/index.js';
+
+const progressionRules = 'What number is missing in the progression?';
+
+const progressionRound = () => {
+  let num = getRandomInRange();
+  const difference = (getRandomInRange() % 10) + 1;
+  const positionNumX = getRandomInRange() % 10;
+  const arr = [];
+  let correctAnswer;
+  for (let j = 0; j < 10; j += 1) {
+    if (j === positionNumX) {
+      arr.push('..');
+      correctAnswer = String(num);
+    } else {
+      arr.push(num);
+    }
+    num += difference;
+  }
+  const question = arr.join(' ');
+  return [question, correctAnswer];
+};
 
 const progressionTheGame = () => {
-  const name = welcome();
-  console.log('What number is missing in the progression?');
-  for (let i = 1; i <= 3; i += 1) {
-    let num = getRandomInRange();
-    const difference = (getRandomInRange() % 10) + 1;
-    const positionNumX = getRandomInRange() % 10;
-    const arr = [];
-    let correctAnswer;
-    for (let j = 0; j < 10; j += 1) {
-      if (j === positionNumX) {
-        arr.push('..');
-        correctAnswer = String(num);
-      } else {
-        arr.push(num);
-      }
-      num += difference;
-    }
-    const quest = arr.join(' ');
-    askQuestion(quest);
-    const answer = giveAnswer();
-    compareAnswer(answer, correctAnswer, name);
-    if (answer !== correctAnswer) {
-      return;
-    }
-  }
-  congratulations(name);
+  runEngine(progressionRules, progressionRound);
 };
 
 export default progressionTheGame;

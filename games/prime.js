@@ -1,7 +1,5 @@
+import runEngine from '../src/index.js';
 import getRandomInRange from '../src/utils.js';
-import {
-  welcome, askQuestion, giveAnswer, compareAnswer, congratulations,
-} from '../src/index.js';
 
 const isPrime = (num) => {
   for (let i = 2; i < num; i += 1) {
@@ -10,20 +8,16 @@ const isPrime = (num) => {
   return (num !== 1) && (num !== 0);
 };
 
+const primeRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+const primeRound = () => {
+  const num = getRandomInRange();
+  const correctAnswer = isPrime(num) ? 'yes' : 'no';
+  return [num, correctAnswer];
+};
+
 const primeTheGame = () => {
-  const name = welcome();
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  for (let i = 1; i <= 3; i += 1) {
-    const num = getRandomInRange();
-    askQuestion(num);
-    const answer = giveAnswer();
-    const correctAnswer = isPrime(num) ? 'yes' : 'no';
-    compareAnswer(answer, correctAnswer, name);
-    if (answer !== correctAnswer) {
-      return;
-    }
-  }
-  congratulations(name);
+  runEngine(primeRules, primeRound);
 };
 
 export default primeTheGame;

@@ -1,7 +1,5 @@
 import getRandomInRange from '../src/utils.js';
-import {
-  welcome, askQuestion, giveAnswer, compareAnswer, congratulations,
-} from '../src/index.js';
+import runEngine from '../src/index.js';
 
 const getRandomSymbol = () => {
   const symbols = ['+', '-', '*'];
@@ -27,23 +25,19 @@ const calc = (num1, symbol, num2) => {
   return result;
 };
 
+const calcRules = 'What is the result of the expression?';
+
+const calcRound = () => {
+  const num1 = getRandomInRange();
+  const num2 = getRandomInRange();
+  const sym = getRandomSymbol();
+  const question = `${num1} ${sym} ${num2}`;
+  const correctAnswer = String(calc(num1, sym, num2));
+  return [question, correctAnswer];
+};
+
 const calcTheGame = () => {
-  const name = welcome();
-  console.log('What is the result of the expression?');
-  for (let i = 1; i <= 3; i += 1) {
-    const num1 = getRandomInRange();
-    const num2 = getRandomInRange();
-    const sym = getRandomSymbol();
-    const quest = `${num1} ${sym} ${num2}`;
-    askQuestion(quest);
-    const answer = giveAnswer();
-    const correctAnswer = String(calc(num1, sym, num2));
-    compareAnswer(answer, correctAnswer, name);
-    if (answer !== correctAnswer) {
-      return;
-    }
-  }
-  congratulations(name);
+  runEngine(calcRules, calcRound);
 };
 
 export default calcTheGame;

@@ -26,6 +26,21 @@ const congratulations = (name) => {
   console.log(`Congratulations, ${name}!`);
 };
 
-export {
-  welcome, askQuestion, giveAnswer, compareAnswer, congratulations,
+const roundsCount = 3;
+
+const runEngine = (rules, generateRound) => {
+  const name = welcome();
+  console.log(rules);
+  for (let i = 0; i < roundsCount; i += 1) {
+    const [question, correctAnswer] = generateRound();
+    askQuestion(question);
+    const answer = giveAnswer();
+    compareAnswer(answer, correctAnswer, name);
+    if (answer !== correctAnswer) {
+      return;
+    }
+  }
+  congratulations(name);
 };
+
+export default runEngine;

@@ -1,7 +1,5 @@
+import runEngine from '../src/index.js';
 import getRandomInRange from '../src/utils.js';
-import {
-  welcome, askQuestion, giveAnswer, compareAnswer, congratulations,
-} from '../src/index.js';
 
 const gcd = (num1, num2) => {
   let a = num1;
@@ -16,22 +14,18 @@ const gcd = (num1, num2) => {
   return a + b;
 };
 
+const gcdRules = 'Find the greatest common divisor of given numbers.';
+
+const gcdRound = () => {
+  const num1 = getRandomInRange();
+  const num2 = getRandomInRange();
+  const question = `${num1} ${num2}`;
+  const correctAnswer = String(gcd(num1, num2));
+  return [question, correctAnswer];
+};
+
 const gcdTheGame = () => {
-  const name = welcome();
-  console.log('Find the greatest common divisor of given numbers.');
-  for (let i = 1; i <= 3; i += 1) {
-    const num1 = getRandomInRange();
-    const num2 = getRandomInRange();
-    const quest = `${num1} ${num2}`;
-    askQuestion(quest);
-    const answer = giveAnswer();
-    const correctAnswer = String(gcd(num1, num2));
-    compareAnswer(answer, correctAnswer, name);
-    if (answer !== correctAnswer) {
-      return;
-    }
-  }
-  congratulations(name);
+  runEngine(gcdRules, gcdRound);
 };
 
 export default gcdTheGame;

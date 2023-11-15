@@ -1,22 +1,16 @@
+import runEngine from '../src/index.js';
 import getRandomInRange from '../src/utils.js';
-import {
-  welcome, askQuestion, giveAnswer, compareAnswer, congratulations,
-} from '../src/index.js';
+
+const evenRules = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+const evenRound = () => {
+  const num = getRandomInRange();
+  const correctAnswer = (num % 2 === 0) ? 'yes' : 'no';
+  return [num, correctAnswer];
+};
 
 const evenTheGame = () => {
-  const name = welcome();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  for (let i = 1; i <= 3; i += 1) {
-    const num = getRandomInRange();
-    askQuestion(num);
-    const answer = giveAnswer();
-    const correctAnswer = (num % 2 === 0) ? 'yes' : 'no';
-    compareAnswer(answer, correctAnswer, name);
-    if (answer !== correctAnswer) {
-      return;
-    }
-  }
-  congratulations(name);
+  runEngine(evenRules, evenRound);
 };
 
 export default evenTheGame;
